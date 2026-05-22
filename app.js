@@ -1523,7 +1523,7 @@ async function initFillingPage() {
   });
 
   /* ── KPI totals: all 4 fuel types ── */
-  const totRev=rows.reduce((s,r)=>s+(r['Petrol Sales (LKR)']||0)+(r['Diesel Sales (LKR)']||0)+(r['Euro 3 Sales (LKR)']||0)+(r['Extra Mile Sales (LKR)']||0),0);
+  const totRev=rows.reduce((s,r)=>s+(r['Diesel Sales (LKR)']||0)+(r['Extra Mile Sales (LKR']||0)+(r['Petrol Sales (LKR)']||0)+(r['Euro 3 Sales (LKR)']||0),0);
   const totVol=rows.reduce((s,r)=>s+(r['Petrol Sales (L)']||0)+(r['Diesel Sales (L)']||0)+(r['Euro 3 Sales (L)']||0)+(r['Extra Mile Sales (L)']||0),0);
   const creditBal=rows.reduce((s,r)=>s+(r['Credit Sales']||0),0);
 
@@ -1553,7 +1553,7 @@ async function initFillingPage() {
 
   /* ── Table renderer: totV sums all 4 fuel types for volume per row ── */
   rows._renderer=r=>{
-    const totR=(r['Petrol Sales (LKR)']||0)+(r['Diesel Sales (LKR)']||0)+(r['Euro 3 Sales (LKR)']||0)+(r['Extra Mile Sales (LKR)']||0);
+    const totR=(r['Diesel Sales (LKR)']||0)+(r['Extra Mile Sales (LKR)']||0)+(r['Petrol Sales (LKR)']||0)+(r['Euro 3 Sales (LKR)']||0);
     const totV=(r['Petrol Sales (L)']||0)+(r['Diesel Sales (L)']||0)+(r['Euro 3 Sales (L)']||0)+(r['Extra Mile Sales (L)']||0);
     return `<tr>
       <td>${fmtDate(r['Date'])}</td>
